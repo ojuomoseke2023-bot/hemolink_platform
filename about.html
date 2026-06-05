@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Infrastructure | HemoLink</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="sidebar-overlay" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 hidden opacity-0 transition-opacity duration-300"></div>
+
+  <nav class="sticky top-0 z-50 bg-[#0B0F19]/80 backdrop-blur-md border-b border-white/10 px-6 py-4">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2 font-bold text-2xl text-white">
+        <span class="text-[#C1121F]">🩸</span>Hemo<span class="text-[#C1121F]">Link</span>
+      </a>
+      <div class="hidden lg:flex items-center gap-8 text-sm font-medium text-gray-300">
+        <a href="index.html" class="hover:text-white transition-colors">Home</a>
+        <a href="donor.html" class="hover:text-white transition-colors">Donor Registration</a>
+        <a href="request.html" class="hover:text-white transition-colors">Request Blood</a>
+        <a href="dashboard.html" class="hover:text-white transition-colors">Dashboard</a>
+        <a href="about.html" class="text-white border-b-2 border-[#C1121F] pb-1">About</a>
+        <a href="contact.html" class="hover:text-white transition-colors">Contact</a>
+        <a href="login.html" class="px-5 py-2.5 bg-[#C1121F] hover:bg-[#A00F18] text-white rounded-lg transition-all font-semibold">Login Portal</a>
+      </div>
+      <button id="mobile-burger" class="lg:hidden text-white p-1 focus:outline-none">
+        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+      </button>
+    </div>
+
+    <div id="mobile-sidebar" class="fixed top-0 right-0 h-full w-72 bg-[#0B0F19]/95 backdrop-blur-xl border-l border-white/10 p-6 z-50 transform translate-x-full transition-transform duration-300 ease-in-out flex flex-col justify-between">
+      <div>
+        <div class="flex items-center justify-between border-b border-white/10 pb-4 mb-6">
+          <span class="font-bold text-xl text-white">🩸 Menu</span>
+          <button id="mobile-close" class="text-gray-400 hover:text-white"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></button>
+        </div>
+        <div class="flex flex-col gap-5 text-base font-medium text-gray-300">
+          <a href="index.html" class="py-2 px-3 hover:bg-white/5 rounded-lg hover:text-white transition-all">Home</a>
+          <a href="donor.html" class="py-2 px-3 hover:bg-white/5 rounded-lg hover:text-white transition-all">Donor Registration</a>
+          <a href="request.html" class="py-2 px-3 hover:bg-white/5 rounded-lg hover:text-white transition-all">Request Blood</a>
+          <a href="dashboard.html" class="py-2 px-3 hover:bg-white/5 rounded-lg hover:text-white transition-all">Dashboard</a>
+          <a href="about.html" class="py-2 px-3 bg-white/5 rounded-lg text-white">About</a>
+          <a href="contact.html" class="py-2 px-3 hover:bg-white/5 rounded-lg hover:text-white transition-all">Contact</a>
+        </div>
+      </div>
+      <div class="pt-6 border-t border-white/10"><a href="login.html" class="block text-center w-full py-3 bg-[#C1121F] text-white rounded-xl font-semibold">Login Portal</a></div>
+    </div>
+  </nav>
+
+  <main class="max-w-4xl mx-auto px-6 py-16">
+    <section class="glass-panel p-8 md:p-12 mb-12">
+      <h2 class="text-3xl font-bold mb-4">Our Mission</h2>
+      <p class="text-gray-300 leading-relaxed">HemoLink bridges the gap between critical blood shortages and life-saving donors. By leveraging automated location-based matching algorithms and precise blood compatibility models, we reduce critical delays from hours to minutes.</p>
+    </section>
+
+    <section class="space-y-4">
+      <h3 class="text-2xl font-bold mb-6">Frequently Answered Queries</h3>
+      <div class="glass-panel border border-white/10 overflow-hidden">
+        <button class="w-full text-left p-6 font-semibold flex justify-between items-center accordion-trigger">
+          <span>Who can donate blood?</span>
+          <span class="accordion-icon transition-transform duration-300">&darr;</span>
+        </button>
+        <div class="hidden p-6 bg-slate-900/40 text-sm text-gray-400 border-t border-white/5">Healthy individuals meeting standard physiological medical criteria can register on the network.</div>
+      </div>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
