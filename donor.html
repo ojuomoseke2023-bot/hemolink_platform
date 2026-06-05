@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Donor Enrollment Protocol | HemoLink</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="sidebar-overlay" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 hidden opacity-0 transition-opacity duration-300"></div>
+
+  <nav class="sticky top-0 z-50 bg-[#0B0F19]/80 backdrop-blur-md border-b border-white/10 px-6 py-4">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2 font-bold text-2xl text-white">
+        <span class="text-[#C1121F]">🩸</span>Hemo<span class="text-[#C1121F]">Link</span>
+      </a>
+      <div class="hidden lg:flex items-center gap-8 text-sm font-medium text-gray-300">
+        <a href="index.html" class="hover:text-white transition-colors">Home</a>
+        <a href="donor.html" class="text-white border-b-2 border-[#C1121F] pb-1">Donor Registration</a>
+        <a href="request.html" class="hover:text-white transition-colors">Request Blood</a>
+        <a href="dashboard.html" class="hover:text-white transition-colors">Dashboard</a>
+        <a href="about.html" class="hover:text-white transition-colors">About</a>
+        <a href="contact.html" class="hover:text-white transition-colors">Contact</a>
+        <a href="login.html" class="px-5 py-2.5 bg-[#C1121F] hover:bg-[#A00F18] text-white rounded-lg transition-all font-semibold">Login Portal</a>
+      </div>
+      <button id="mobile-burger" class="lg:hidden text-white p-1 focus:outline-none">
+        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+      </button>
+    </div>
+
+    <div id="mobile-sidebar" class="fixed top-0 right-0 h-full w-72 bg-[#0B0F19]/95 backdrop-blur-xl border-l border-white/10 p-6 z-50 transform translate-x-full transition-transform duration-300 ease-in-out flex flex-col justify-between">
+      <div>
+        <div class="flex items-center justify-between border-b border-white/10 pb-4 mb-6">
+          <span class="font-bold text-xl text-white">🩸 Menu</span>
+          <button id="mobile-close" class="text-gray-400 hover:text-white"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></button>
+        </div>
+        <div class="flex flex-col gap-5 text-base font-medium text-gray-300">
+          <a href="index.html" class="py-2 px-3 hover:bg-white/5 rounded-lg hover:text-white transition-all">Home</a>
+          <a href="donor.html" class="py-2 px-3 bg-white/5 rounded-lg text-white">Donor Registration</a>
+          <a href="request.html" class="py-2 px-3 hover:bg-white/5 rounded-lg hover:text-white transition-all">Request Blood</a>
+          <a href="dashboard.html" class="py-2 px-3 hover:bg-white/5 rounded-lg hover:text-white transition-all">Dashboard</a>
+          <a href="about.html" class="py-2 px-3 hover:bg-white/5 rounded-lg hover:text-white transition-all">About</a>
+          <a href="contact.html" class="py-2 px-3 hover:bg-white/5 rounded-lg hover:text-white transition-all">Contact</a>
+        </div>
+      </div>
+      <div class="pt-6 border-t border-white/10"><a href="login.html" class="block text-center w-full py-3 bg-[#C1121F] text-white rounded-xl font-semibold">Login Portal</a></div>
+    </div>
+  </nav>
+
+  <main class="max-w-3xl mx-auto px-6 py-16">
+    <div class="glass-panel p-8 md:p-12 border border-white/10 relative z-10 shadow-2xl">
+      <div class="mb-8">
+        <h2 class="text-3xl font-bold mb-2">Become a Lifesaver</h2>
+        <p class="text-gray-400 text-sm">Register your donor profile on our matching network.</p>
+      </div>
+      <form id="donorForm" onsubmit="handleFormSubmit(event, 'Donor Profile successfully logged onto the operational network cluster.')" class="space-y-6">
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="flex flex-col gap-2"><label class="text-xs text-gray-400 font-semibold uppercase">Full Name</label><input type="text" required class="form-input" placeholder="John Doe"></div>
+          <div class="flex flex-col gap-2"><label class="text-xs text-gray-400 font-semibold uppercase">Email Address</label><input type="email" required class="form-input" placeholder="john@company.com"></div>
+          <div class="flex flex-col gap-2"><label class="text-xs text-gray-400 font-semibold uppercase">Phone Number</label><input type="tel" required class="form-input" placeholder="+234..."></div>
+          <div class="flex flex-col gap-2"><label class="text-xs text-gray-400 font-semibold uppercase">Blood Group</label><select required class="form-input"><option value="" disabled selected hidden>Select Phenotype</option><option value="O-">O-</option><option value="O+">O+</option><option value="A-">A-</option><option value="A+">A+</option><option value="B-">B-</option><option value="B+">B+</option><option value="AB-">AB-</option><option value="AB+">AB+</option></select></div>
+          <div class="flex flex-col gap-2"><label class="text-xs text-gray-400 font-semibold uppercase">State</label><input type="text" required class="form-input" placeholder="Nasarawa"></div>
+          <div class="flex flex-col gap-2"><label class="text-xs text-gray-400 font-semibold uppercase">City</label><input type="text" required class="form-input" placeholder="Keffi"></div>
+        </div>
+        <button type="submit" class="w-full mt-4 py-4 bg-[#C1121F] hover:bg-[#A00F18] text-white font-bold rounded-xl shadow-lg transition-all text-sm uppercase">Become a Lifesaver</button>
+      </form>
+    </div>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
