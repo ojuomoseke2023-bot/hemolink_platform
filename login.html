@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Secured Operations Authentication | HemoLink</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="min-h-screen flex items-center justify-center px-6 relative">
+    <div class="w-full max-w-md glass-panel p-8 border border-white/10 shadow-2xl relative z-10">
+      <div class="text-center mb-8">
+        <a href="index.html" class="inline-flex items-center gap-2 font-bold text-3xl text-white mb-2"><span class="text-[#C1121F]">🩸</span>HemoLink</a>
+      </div>
+      
+      <div class="grid grid-cols-3 gap-2 p-1 bg-slate-950 rounded-lg mb-6 text-center text-xs font-semibold">
+        <button onclick="switchTab('donor')" id="tab-donor" class="py-2 text-white bg-[#C1121F] rounded-md transition-all">Donor</button>
+        <button onclick="switchTab('hospital')" id="tab-hospital" class="py-2 text-gray-400 hover:text-white transition-all">Hospital</button>
+        <button onclick="switchTab('admin')" id="tab-admin" class="py-2 text-gray-400 hover:text-white transition-all">Admin</button>
+      </div>
+
+      <form onsubmit="handleFormSubmit(event, 'Authorization token generated. Access Granted.')" class="space-y-4">
+        <div class="flex flex-col gap-1"><label id="identity-label" class="text-[10px] uppercase font-bold text-gray-400">Donor Account ID</label><input type="text" required class="form-input" placeholder="user@hemolink.net"></div>
+        <div class="flex flex-col gap-1"><label class="text-[10px] uppercase font-bold text-gray-400">Security Credentials</label><input type="password" required class="form-input" placeholder="••••••••••"></div>
+        <button type="submit" class="w-full py-3 bg-[#C1121F] hover:bg-[#A00F18] text-white font-bold rounded-xl text-xs uppercase tracking-wider">Verify Identity</button>
+      </form>
+    </div>
+  </main>
+
+  <script>
+    function switchTab(type) {
+        const tabs = ['donor', 'hospital', 'admin'];
+        tabs.forEach(t => {
+            document.getElementById(`tab-${t}`).className = "py-2 text-gray-400 hover:text-white transition-all";
+        });
+        document.getElementById(`tab-${type}`).className = "py-2 text-white bg-[#C1121F] rounded-md transition-all";
+        const label = document.getElementById('identity-label');
+        if(type === 'donor') label.innerText = "Donor Account ID";
+        if(type === 'hospital') label.innerText = "Hospital Facility Code";
+        if(type === 'admin') label.innerText = "Root Administrator Token";
+    }
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>
